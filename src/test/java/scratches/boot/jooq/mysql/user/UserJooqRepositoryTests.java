@@ -23,8 +23,8 @@ import static org.testcontainers.containers.MySQLContainer.IMAGE;
  */
 @Testcontainers
 @Sql(scripts = "file:mysql/init/init.sql")
-@JooqTest(includeFilters = @Filter(type = ASSIGNABLE_TYPE, classes = UserRepositoryImpl.class))
-class UserRepositoryImplTests {
+@JooqTest(includeFilters = @Filter(type = ASSIGNABLE_TYPE, classes = UserJooqRepository.class))
+class UserJooqRepositoryTests {
 
     @Container
     static MySQLContainer<?> container = new MySQLContainer<>(IMAGE + ":8")
@@ -32,7 +32,7 @@ class UserRepositoryImplTests {
             .withDatabaseName("demo");
 
     @Autowired
-    private UserRepositoryImpl repository;
+    private UserJooqRepository repository;
 
     @DynamicPropertySource
     static void datasourceProperties(DynamicPropertyRegistry registry) {

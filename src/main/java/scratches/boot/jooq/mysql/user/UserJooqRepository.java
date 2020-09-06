@@ -12,7 +12,7 @@ import static scratches.boot.jooq.mysql.jooq.Tables.USERS;
  */
 @Repository
 @AllArgsConstructor
-public class UserRepositoryImpl implements UserRepository {
+public class UserJooqRepository implements UserRepository<UsersRecord> {
 
     private final DSLContext dsl;
 
